@@ -2,7 +2,7 @@
 <html lang="pl">
     <head>
         <meta charset="utf-8"/>
-        <title>Retrogranie2</title>
+        <title>Monitory</title>
         <meta name="description" content="Strona znajlepszymi monitorami. Bardzo polecam"/>
         <meta name="keywords" content="Monitory komputerowe - wykład"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -17,79 +17,21 @@
                 //zresetuj scrolla
                 $.scrollTo(0);  
 
-                $('#link0').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link1a'), 500); 
-                });
+                for(let i = 0; i <= 14; i++) 
+                {
+                    let from = "#link" + i
+                    let to = "#link" + (i + 1) + "a"
 
-                $('#link1').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link2a'), 500); 
-                });
+                    console.log("i = " + i)
+                    console.log("from = " + from)
+                    console.log("to = " + to)
 
-                $('#link2').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link3a'), 500); 
-                });
+                    $(from).click(function() { 
+                        console.log("click!")
+                        $.scrollTo($(to), 500); 
+                    });
+                }
 
-                $('#link3').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link4a'), 500); 
-                });
-
-                $('#link4').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link5a'), 500); 
-                });
-
-                $('#link5').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link6a'), 500); 
-                });
-
-                $('#link6').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link7a'), 500); 
-                });
-                $('#link7').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link8a'), 500); 
-                });                
-                
-                $('#link8').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link9a'), 500); 
-                });                
-                
-                $('#link9').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link10a'), 500); 
-                });                
-                
-                $('#link10').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link11a'), 500); 
-                });                
-                
-                $('#link11').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link12a'), 500); 
-                });                
-                
-                $('#link12').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link13a'), 500); 
-                });                
-                
-                $('#link13').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link14a'), 500); 
-                });
-
-                $('#link14').click(function() { 
-                    console.log("click!")
-                    $.scrollTo($('#link15a'), 500); 
-                });
 
                 $('.scrollup').click(function() { 
                     console.log("click!")
