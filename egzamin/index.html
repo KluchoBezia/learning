@@ -5,20 +5,36 @@
 
         <script type="text/javascript">
 
-            function sprawdz()
+            function wypiszLiczby()
             {
-                var liczba = document.getElementById("pole").value;
+                // Pobieranie wartości z pól tekstowych i konwertowanie na liczby całkowite
+                var liczba1 = parseInt(document.getElementById("liczba1").value);
+                var liczba2 = parseInt(document.getElementById("liczba2").value);
                 
-                if(liczba=="")
-                    document.getElementById("wynik").innerHTML="wpisz coś";
-                else if(liczba>0)
-                    document.getElementById("wynik").innerHTML="dodatnia";
-                else if(liczba<0)
-                    document.getElementById("wynik").innerHTML="ujemna";
-                else if (liczba==0)
-                    document.getElementById("wynik").innerHTML="zero";
-                else 
-                    document.getElementById("wynik").innerHTML="to nie jest liczba"
+                // Sprawdzenie, czy wartości są liczbami
+                if(isNaN(liczba1) || isNaN(liczba2)) {
+                    document.getElementById("wynik").innerHTML="wpisz liczbe całkowitą";
+                    return;
+                }
+
+                // Tworzenie zmiennej, w której będą zapisane liczby z przedziału
+                var napis = "";
+
+                // Upewnij się, że liczba1 jest mniejsza od liczba2, jeśli nie, zamień ich wartości
+                if (liczba1 > liczba2) {
+                    var magazyn = liczba1; 
+                    liczba1 = liczba2;
+                    liczba2 = magazyn;
+                }
+
+                // Pętla, która wypisuje liczby z przedziału
+                for (i = liczba1; i <=liczba2; i++) {
+                    napis = napis + i + " "; // Dodajemy liczby do zmiennej wynik
+                }
+
+                 // Wyświetlenie wyników na stronie
+                document.getElementById("wynik").innerHTML = "Liczby z przedziału: " + napis;
+
             }
 
         </script>
@@ -27,10 +43,13 @@
 
     <body>
 
-        <input type="text" id="pole"/>
-        <input type="submit" value="sprawdz" onclick="sprawdz()" /> 
+        <input type="text" id="liczba1"/>
+        <input type="text" id="liczba2"/>
+        <input type="submit" value="pokaz" onclick="wypiszLiczby()" /> 
 
         <div id="wynik"></div>
 
     </body>
 </html>
+
+ <!-- && = i   || = lub -->
