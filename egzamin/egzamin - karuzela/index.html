@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8"/>
+
+        <style>
+
+            #aktualnyObraz {
+                width: 300px;
+                height: 300px;
+                border: 2px solid black;
+                display: block;
+                margin: 20px auto;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+
+            var aktualnyNumer = 1; // Przechowuje aktualny numer obrazka
+            var maxNumer = 5; // Maksymalna liczba obrazków
+
+            function zmienObraz(numer)
+            {   
+                // Zaktualizuj numer obrazka
+                aktualnyNumer = numer;
+
+                // Pobierz element obrazka
+                var obraz = document.getElementById("aktualnyObraz");
+
+                // W zależności od numeru przycisku, zmień obrazek
+                switch(numer) {
+                    case 1: 
+                        obraz.src = "img/z1.jpg";
+                        break;
+                    case 2: 
+                        obraz.src = "img/z2.jpg";
+                        break;
+                    case 3:
+                        obraz.src = "img/z3.jpg";
+                        break;
+                    case 4:
+                        obraz.src = "img/z4.jpg";
+                        break;
+                    case 5:
+                        obraz.src = "img/z5.jpg";
+                        break;
+                }
+
+                    // if (numer === 1) {
+                    //     obraz.src = "img/z1.jpg";
+                    // } else if (numer === 2) {
+                    //     obraz.src = "img/z2.jpg";
+                    // } else if (numer === 3) {
+                    //     obraz.src = "img/z3.jpg";
+                    // } else if (numer === 4) {
+                    //     obraz.src = "img/z4.jpg";
+                    // } else if (numer === 5) {
+                    //     obraz.src = "img/z5.jpg";
+                    // } 
+
+            }
+
+            function autoZmienObraz() 
+            {
+                // Zwiększ numer obrazka
+                aktualnyNumer++;
+
+                // Resetuj numer, jeśli przekroczy liczbę dostępnych obrazków
+                if (aktualnyNumer > maxNumer) {
+                    aktualnyNumer = 1;
+                }
+
+                // Zmień obrazek na następny
+                zmienObraz(aktualnyNumer);
+
+            }
+
+            // Uruchom automatyczne przełączanie obrazków co 5 sekund
+            window.onload = function() {
+                    setInterval(autoZmienObraz, 4000);  // Zmieniaj obrazek co 5 sekund
+                }
+
+        </script>
+
+    </head>
+
+    <body>
+         <!-- Przycisk do przełączania obrazów -->
+        <button onclick="zmienObraz(1)">[1]</button>
+        <button onclick="zmienObraz(2)">[2]</button>
+        <button onclick="zmienObraz(3)">[3]</button>
+        <button onclick="zmienObraz(4)">[4]</button>
+        <button onclick="zmienObraz(5)">[5]</button> 
+
+        <!-- Obszar, w którym wyświetlane będą obrazy -->
+        <img id="aktualnyObraz" src="img/z1.jpg"/>
+
+    </body>
+
+</html>
+
